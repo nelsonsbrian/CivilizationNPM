@@ -91,11 +91,6 @@ export class Player {
     takeDamage(amount) {
         this.health -= amount;
     }
-
-    civUpgrade()
-    {
-
-    }
 }
 
 export class Egypt extends Player {
