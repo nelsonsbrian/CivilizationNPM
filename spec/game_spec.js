@@ -58,4 +58,9 @@ describe('Game', function () {
     it('should return the corresponding player object given the id', function () {
         expect(newGame.getPlayer(1).civName).toEqual(newGame.playersArr[1].civName);
     })
+    it('should return the next currentPlayer and the total turns', function(){
+        newGame.endTurn();
+        expect(newGame.turn).toEqual(1);
+        expect(newGame.currentPlayer.civName).toEqual("China");
+    })
 });
