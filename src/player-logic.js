@@ -12,25 +12,29 @@ export class Player {
     this.AI = true;
     this.dead = false;
     this.workerList = [];
-    this.warriorList = [];
+    this.warriorsList = [];
     this.availableUnitAssign = 0;
     this.units = [];
   }
 
-  declareWar(targetPlayers) //could declare war on multiple civs at once
+  declareWar(targetPlayers) //could declare war on multiple civs at once -- objects
   {
+    let war = this.war;
     targetPlayers.forEach(function (target) {
-      if (!this.war.includes(target)) {
-        this.war.push(target);
+      if (!war.includes(target)) {
+        war.push(target);
       }
     });
+    this.war = war;
   }
 
   makePeace(targetPlayers) { //assumming input targets are actually at war
+    let war = this.war;
     targetPlayers.forEach(function (target) {
-      let index = this.war.indexOf(target);
-      this.war.splice(index, 1);
+      let index = war.indexOf(target);
+      war.splice(index, 1);
     });
+    this.war = war;
   }
 
   grow() {
@@ -42,10 +46,12 @@ export class Player {
   }
 
   decrementingFood() {
+
     const decreaseFood = setInterval(() => {
       this.foodLevel -= this.population * 0.2; //arbitrary
     }
       , 10000);
+      
   }
 
   createUnit(index) {
@@ -53,9 +59,13 @@ export class Player {
     if (index === 1) {
       newUnit = new Worker();
       this.workerList.push(newUnit);
+      this.availableUnitAssign--;
+      this.population++;
     } else if (index === 2) {
       newUnit = new Warrior();
       this.warriorsList.push(newUnit);
+      this.availableUnitAssign -= 2;
+      this.population += 2;
     }
     this.units.push(newUnit);
   }
@@ -64,22 +74,9 @@ export class Player {
     this.AI = false;
   }
 
-  assignProfession(index)
-  {
-    if (index === 1) {
-      this.worker++;
-      this.availableUnitAssign--;
-      this.population++;
-    } else if (index === 2) {
-      this.warrior++;
-      this.availableUnitAssign -= 2;
-      this.population += 2;
-    }
-  }
-
   attackAll(targetPlayer) {
     let attackTotal = 0;
-    this.warriorList.forEach(function(unit) {
+    this.warriorsList.forEach(function(unit) {
       if (unit.action != 0) {
         attackTotal+= unit.attack;
         unit.action = 1;
