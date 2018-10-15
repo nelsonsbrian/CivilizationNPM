@@ -22,14 +22,14 @@ export class Game {
 
             if (player === this.mainPlayer) {
                 //check if main player just lost
-                if (this.mainPlayer.totalUnit == 0) {
+                if (this.mainPlayer.population == 0) {
                     this.status = false;
                 }
             } else if (player.science == 100 || player.millitary == 100 || player.culture == 100) {
                 this.status = false;
             }
 
-            if (player.totalUnit == 0) {
+            if (player.population == 0) {
                 remainingAI--;
                 player.dead = true;
             }

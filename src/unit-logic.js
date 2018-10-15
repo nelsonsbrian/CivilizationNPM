@@ -1,3 +1,5 @@
+import { Player } from "./player-logic";
+
 export class Unit {
     constructor(player) {
         this.playerId = player;
@@ -8,30 +10,20 @@ export class Unit {
         return (this.action === 0) ? true: false;
     }
 
-    attack() {
-
-    }
-
-    takeDamage() {
-
-    }
+    
 }
 
 export class Warrior extends Unit {
     constructor() {
         super();
         this.name = "Warrior";
-        this.health = 150;
+        // this.health = 150;
         this.attack = 7;
     }
-}
 
-export class Archer extends Unit {
-    constructor() {
-        super();
-        this.name = "Archer";
-        this.health = 70;
-        this.attack = 9;
+    attack(targetPlayer) {
+        this.action = 1;
+        targetPlayer.takeDamage(this.attack);
     }
 }
 
@@ -39,8 +31,8 @@ export class Worker extends Unit {
     constructor() {
         super();
         this.name = "Worker";
-        this.health = 50;
-        this.attack = 2;
+        // this.health = 50;
+        // this.attack = 2;
     }
 
     forage(player) {
