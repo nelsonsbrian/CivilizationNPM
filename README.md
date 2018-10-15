@@ -34,7 +34,7 @@ Game and GamePlay
 ## Support and contact details
 
 Brian Nelson nelsonsbrian@gmail.com
-Sky Nguyen
+Skye Nguyen skye@dames.es
 
 ### License
 
