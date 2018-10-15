@@ -3,10 +3,12 @@ export class Player {
         this.economy = 500;
         this.wonders = [];
         this.population = 1;
+        this.totalUnit = 1;
         this.foodLevel = 0; //depending on location this initial value will be different
         this.science = 0;
         this.war = []; //A list of civs
         this.AI = true;
+        this.dead = false;
     }
     declareWar(targetPlayers) //could declare war on multiple civs at once
     {
@@ -17,27 +19,23 @@ export class Player {
         });
     }
     makePeace(targetPlayers) { //assumming input targets are actually at war
-        tagertPlayers.forEach(function (target)
-        {
+        tagertPlayers.forEach(function (target) {
             let index = war.indexOf(target);
             war.splice(index, 1);
         });
     }
-    grow()
-    {
-        const growInterval = setInterval(() =>{
+    grow() {
+        const growInterval = setInterval(() => {
             this.population++;
-        },10000)
+        }, 10000)
     }
-    decrementingFood()
-    {
-        const decreaseFood = setInterval(() =>{
-            this.foodLevel -= this.population*0.2; //arbitrary
+    decrementingFood() {
+        const decreaseFood = setInterval(() => {
+            this.foodLevel -= this.population * 0.2; //arbitrary
         }
-        ,10000)
+            , 10000)
     }
-    setMainPlayer()
-    {
+    setMainPlayer() {
         this.AI = false;
     }
 }
