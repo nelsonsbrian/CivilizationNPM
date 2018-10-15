@@ -27,25 +27,28 @@ export class Game {
     //check if ANY player won
     let remainingAI = 2;
     let mainPlayer = this.mainPlayer;
+    let status =this.status;
     this.playersArr.forEach(function (player) {
       if (player === mainPlayer) {
         //check if main player just lost
-        if (mainPlayer.population == 0) {
-          this.status = false;
+        if (mainPlayer.population === 0) {
+          status = false;
         }
-      } else if (player.science == 100 || player.millitary == 100 || player.culture == 100) {
-        this.status = false;
+      }  
+      if (player.science === 100 || player.millitary == 100 || player.culture === 100) {
+        status = false;
       }
 
-      if (player.population == 0) {
+      if (player.population === 0) {
         remainingAI--;
         player.dead = true;
       }
 
       if (remainingAI === 0) {
-        this.status = false;
+        status = false;
       }
     });
+    this.status = status;
   }
 
   endTurn()
