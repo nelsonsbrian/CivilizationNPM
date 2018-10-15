@@ -6,6 +6,7 @@ export class Player {
         this.foodLevel = 0; //depending on location this initial value will be different
         this.science = 0;
         this.war = []; //A list of civs
+        this.AI = true;
     }
     declareWar(targetPlayers) //could declare war on multiple civs at once
     {
@@ -35,11 +36,16 @@ export class Player {
         }
         ,10000)
     }
+    setMainPlayer()
+    {
+        this.AI = false;
+    }
 }
 
 export class Egypt extends Player {
     constructor() {
         super();
+        this.civId = 0;
         this.civName = "Egypt";
         this.leaderName = "Cleopatra";
         this.millitary = 10; //weak
@@ -51,6 +57,7 @@ export class Egypt extends Player {
 export class Russia extends Player {
     constructor() {
         super();
+        this.civId = 1;
         this.civName = "Russia";
         this.leaderName = "Putin";
         this.millitary = 30;
@@ -62,6 +69,7 @@ export class Russia extends Player {
 export class China extends Player {
     constructor() {
         super();
+        this.civId = 2;
         this.civName = "China";
         this.leaderName = "Mao";
         this.millitary = 20;
