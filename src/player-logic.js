@@ -1,9 +1,9 @@
 export class Player {
     constructor() {
+        this.health = 700;
         this.economy = 500;
         this.wonders = [];
         this.population = 1;
-        this.totalUnit = 1;
         this.foodLevel = 0; //depending on location this initial value will be different
         this.science = 0;
         this.war = []; //A list of civs
@@ -28,6 +28,7 @@ export class Player {
         const growInterval = setInterval(() => {
             this.population++;
         }, 10000)
+        //should allow the user to assign profession to new citizen
     }
     decrementingFood() {
         const decreaseFood = setInterval(() => {
@@ -37,6 +38,21 @@ export class Player {
     }
     setMainPlayer() {
         this.AI = false;
+    }
+    assignProfession()
+    {
+        
+    }
+    attack() {
+
+    }
+
+    takeDamage() {
+
+    }
+    civUpgrade()
+    {
+
     }
 }
 
