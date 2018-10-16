@@ -9,8 +9,6 @@ export class Unit {
   canTakeAction() {
     return (this.action === 0) ? true: false;
   }
-
-    
 }
 
 export class Warrior extends Unit {

@@ -16,11 +16,11 @@ export class Game {
   {
     let setplayer;
     for(let i = 0; i < this.playersArr.length; i++) {
-        if (this.playersArr[i].AI === false) {
-            setplayer = this.playersArr[i];
-        }   
-        return setplayer;  
+      if (this.playersArr[i].AI === false) {
+        setplayer = this.playersArr[i];
+      }   
     }
+    return setplayer;  
   }
 
   isGameOver() {

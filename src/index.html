@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script type="text/javascript" src="bundle.js"></script>
-    <title>Civilization</title>
-  </head>
-  <body>
-    <p>Civilization</p>
-  </body>
+
+<head>
+  <script type="text/javascript" src="bundle.js"></script>
+  <title>Civilization</title>
+</head>
+
+<body>
+  <h1>Civilization</h1>
+  <div class="container-fluid">
+    <div id='civDiv'>Choose your Civilization
+
+      <form id="civSelect">
+        <label>Civilization Name</label>
+        <select id="civs">
+          <option>Russia</option>
+          <option>China</option>
+          <option>Egypt</option>
+        </select>
+        <button class="btn btn-success" type="submit">Choose</button>
+      </form>
+    </div>
+    <div>
+      <h4><span id="yourCiv"></span></h4>
+      <p>Turn: <span id="turn"></span></p>
+      <h5>Stats</h5>
+      <h6>Health: <span id="yourHealth"></span></h6>
+      <h6>Science: <span id="yourScience"></span></h6>
+      <h6>Economy: <span id="yourEconomy"></span></h6>
+      <h6>Population: <span id="yourPopulation"></span></h6>
+      <h6>Food: <span id="yourFood"></span></h6><br>
+      <h4>Units:</h4>
+      <h6>Workers: <span id="yourWorkers"></span></h6>
+      <h6>Warriors: <span id="yourWarriros"></span></h6>
+      <h6>NewUnits: <span id="yourNewUnits"></span></h6>
+
+
+    </div>
+  </div>
+
+</body>
+
 </html>
