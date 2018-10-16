@@ -37,11 +37,16 @@ export class Player {
     this.war = war;
   }
 
-  grow() {
+  grow(Game) {
     const growInterval = setInterval(() => {
 
       this.availableUnitAssign++;
-    }, 10000);
+      if (Game.status == false)
+        {
+            
+            clearInterval(growInterval);
+        }
+    }, 3000);
     //should allow the user to assign profession to new citizen
   }
 
