@@ -72,5 +72,10 @@ describe('Player', function () {
         expect(player1.warriorsList.length).toBe(2);
         expect(player1.population).toEqual(17);       
     })
-       
+    it ('should attack the target player', function()
+    {
+        player1.createUnit(2);
+        player1.attackAll(player2);
+        expect(player2.health).toEqual(693);
+    })
 });

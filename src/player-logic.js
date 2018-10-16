@@ -54,7 +54,7 @@ export class Player {
       
   }
 
-  createUnit(index) {
+  createUnit(index) { //only create unit if there is available citizen.
     let newUnit;
     if (index === 1) {
       newUnit = new Worker();
@@ -77,7 +77,7 @@ export class Player {
   attackAll(targetPlayer) {
     let attackTotal = 0;
     this.warriorsList.forEach(function(unit) {
-      if (unit.action != 0) {
+      if (unit.action == 0) {
         attackTotal+= unit.attack;
         unit.action = 1;
       }
